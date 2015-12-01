@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('store', []);
 	app.controller('PanelController', function(){
-		
+		this.tab = 1;
 	});
 	app.controller('StoreController', function(){
 		this.products	 = gems;
