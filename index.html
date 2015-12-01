@@ -5,11 +5,6 @@
 	</head>
 	<body ng-controller="StoreController as store">
 		<div ng-repeat="product in store.products">
-			<!--<h1> {{product.name}} </h1>
-			<h2> ${{product.price}} </h2>
-			<p> {{product.description}} </p>
-			<button ng-show="product.canPurchase"> Add to Cart </button>
-		</div>-->
 			<ul class="list-group">
 				<li class="list-group-item">
 					<h3>
@@ -41,7 +36,29 @@
 				</div>
 				<div class="panel" ng-show="panel.isSelected(3)">
 					<h4>Reviews</h4>
-					<blockquote>None yet</blockquote>
+					<blockquote ng-repeat="review in product.reviews">
+						<b>Stars: {{review.stars}}</b>
+						{{review.body}}
+						<cite>by: {{review.author}}</cite>
+					</blockquote>
+					<form name="reviewForm">
+						<blockquote>
+							<b>Stars: {{review.stars}}</b>
+							{{review.body}}
+							<cite>by: {{review.author}}</cite>
+						</blockquote>
+						<select ng-model="review.stars">
+							<option value="1">1 Star</option>
+							<option value="2">2 Stars</option>
+							<option value="3">3 Stars</option>
+							<option value="4">4 Stars</option>
+							<option value="5">5 Stars</option>
+						</select>
+						<textarea ng-model="review.body"></textarea>
+						<label>by: </label>
+						<input ng-model="review.author" type="email" />
+						<input type="submit" value="Submit" />
+					</form>
 				</div>
 			</section>
 		</div>
