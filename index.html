@@ -8,9 +8,7 @@
 		<div ng-repeat="product in store.products">
 			<ul class="list-group">
 				<li class="list-group-item">
-					<h3>
-						{{product.name}}
-						<em class="pull-right">{{product.price | currency }}</em>
+					<h3 ng-include="'product-title.html'">
 						<img ng-src="{{product.images[0].full}}">
 					</h3>
 				</li>
